@@ -1,3 +1,3 @@
-# expense-analytics-databricks
-AI-Driven Expense Analytics using Databricks, Delta Lake 
-Power BI End-to-end data engineering project implementing Medallion Architecture (Bronze–Silver–Gold) with automated ingestion, transformation, and analytics-ready datasets, including ML-based expense forecasting.
+This project is an end-to-end expense analytics and forecasting pipeline built using Databricks, Delta Lake, and Power BI, designed to gain hands-on experience with modern data engineering and analytics workflows.
+
+The solution follows the Medallion Architecture (Bronze, Silver, Gold) to ensure scalable, maintainable, and analytics-ready data processing. Raw expense data is ingested using Fivetran, cleaned and standardized in Databricks, aggregated into business-friendly datasets, and finally consumed in Power BI dashboards. An AI/ML component is included to analyze spending trends and support future expense forecasting.
