@@ -1,96 +1,35 @@
-📊 ML Feature Engineering Pipeline (PySpark)
-📌 Overview
+AI-Driven Expense Tracker & Budget Analyzer
 
-This project focuses on feature engineering using PySpark to generate structured, machine-learning–ready datasets from transactional data.
-The pipeline aggregates raw spending data into monthly category-level features, which can be directly used for analytics, forecasting, or ML models.
+This project provides an intelligent platform for tracking expenses and analyzing budgets using AI-powered insights. Designed to help individuals and organizations manage finances efficiently, it leverages advanced analytics to categorize spending, forecast trends, and offer actionable recommendations.
+Features
 
-The processed features are stored in a Gold layer table, following a Medallion (Bronze–Silver–Gold) architecture.
+    Automated Expense Categorization: Uses AI to classify transactions for easy tracking.
+    Budget Analysis: Visualizes spending patterns and highlights areas for optimization.
+    Forecasting: Predicts future expenses based on historical data.
+    Customizable Reports: Generate detailed summaries and charts for personal or business use.
+    Secure Data Handling: Ensures privacy and security of financial information.
 
-🧠 Key Features
+Getting Started
 
-Extracts year and month from transaction dates
+    Clone the repository:
+    git clone https://github.com/your-username/ai-expense-tracker.git
+    Install dependencies:
+    Follow the instructions in requirements.txt or the setup guide.
+    Configure your data source:
+    Update configuration files with your financial data or connect to supported APIs.
+    Run the application:
+    Launch the main script or notebook to start tracking and analyzing expenses.
 
-Aggregates monthly spend per category
+Usage
 
-Generates clean ML-ready features
+    Import your transaction data (CSV, Excel, or API).
+    Review AI-generated categorizations and budget insights.
+    Explore interactive dashboards and reports.
+    Adjust budget parameters and receive recommendations.
 
-Writes output to a Gold table for downstream ML tasks
+Contributing
 
-Built using PySpark DataFrame API
+Contributions are welcome! Please submit issues or pull requests for improvements, new features, or bug fixes.
+License
 
-🗂️ Project Structure
-.
-├── notebooks/
-│   ├── feature_engineering.ipynb
-│   └── exploratory_analysis.ipynb
-├── README.md
-
-🔧 Tech Stack
-
-Apache Spark (PySpark)
-
-Python
-
-Spark SQL
-
-Databricks / Spark-compatible environment
-
-📐 Feature Engineering Logic
-
-The following features are created:
-
-year – extracted from transaction date
-
-month – extracted from transaction date
-
-category – spending category
-
-monthly_category_spend – total spend per category per month
-
-These features are aggregated and stored in a Gold table:
-
-your_catalog.your_schema.gold_ml_features
-
-🚀 How to Run
-
-Set up a Spark / Databricks environment
-
-Load the Silver-layer DataFrame (silver_df)
-
-Run the notebook inside the notebooks/ folder
-
-Verify the Gold table using Spark SQL
-
-Example aggregation logic:
-
-ml_features = (
-    silver_df
-    .withColumn("year", year("date"))
-    .withColumn("month", month("date"))
-    .groupBy("year", "month", "category")
-    .agg(sum("amount").alias("monthly_category_spend"))
-)
-
-ml_features.write.mode("overwrite").saveAsTable(
-    "your_catalog.your_schema.gold_ml_features"
-)
-
-📈 Use Cases
-
-Monthly spending trend analysis
-
-Budget forecasting
-
-Category-level ML models
-
-Financial analytics dashboards
-
-🧩 Future Improvements
-
-Add more time-based features (quarter, rolling averages)
-
-Integrate ML models (forecasting / anomaly detection)
-
-Add unit tests for feature validation
-
-Automate pipeline using workflows
+This project is licensed under the MIT License.
